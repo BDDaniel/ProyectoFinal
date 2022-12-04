@@ -238,21 +238,22 @@ const Profesores = () => {
 
         <div className="field">
           <label htmlFor="apellido">Apellido</label>
-          <InputText id="apellido" value={profesor.apellido} onChange={(e) => onInputChange(e, 'apellido')} required autoFocus className={classNames({ 'p-invalid': submitted && !profesor.apellido })} />
+          <InputText id="apellido" value={profesor.apellido} onChange={(e) => onInputChange(e, 'apellido')} required className={classNames({ 'p-invalid': submitted && !profesor.apellido })} />
           {submitted && !profesor.apellido && <small className="p-error">Apellido es requerido.</small>}
         </div>
 
         <div className="field">
           <label htmlFor="email">Email</label>
-          {/* <InputText id="email" value={profesor.email} onChange={(e) => onInputChange(e, 'email')} required autoFocus className={classNames({ 'p-invalid': submitted && !profesor.email })} />
-          {submitted && !profesor.email && <small className="p-error">Email es requerido.</small>} */}
-          <input type="email" id="email" value={profesor.email} onChange={(e) => onInputChange(e, 'email')} className={"form-control" + classNames({ 'p-invalid': submitted && !profesor.email })}></input>
+          <InputText id="email" value={profesor.email} onChange={(e) => onInputChange(e, 'email')} required className={classNames({ 'p-invalid': submitted && !profesor.email })} />
           {submitted && !profesor.email && <small className="p-error">Email es requerido.</small>}
+          {/* <input type="email" id="email" value={profesor.email} onChange={(e) => onInputChange(e, 'email')} required className={"form-control" + classNames({ 'p-invalid': submitted && !profesor.email })}></input>
+          {submitted && !profesor.email && <small className="p-error">Email es requerido.</small>} */}
         </div>
 
         <div className="field">
           <label className="mb-3">Celular</label>
-          <InputNumber id="celular" value={profesor.celular} onChange={(e) => onInputChange(e, 'celular')} min={10} max={10} mode="decimal" useGrouping={false} />
+          <InputNumber id="celular" value={profesor.celular} onChange={(e) => onInputChange(e, 'celular')} required className={classNames({ 'p-invalid': submitted && !profesor.celular })} min={1000000000} max={9999999999} mode="decimal" useGrouping={false} />
+          {submitted && !profesor.celular && <small className="p-error">Celular es requerido.</small>}
         </div>
       </Dialog>
 

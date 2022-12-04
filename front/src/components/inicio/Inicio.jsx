@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Inicio.css'
 
 const Inicio = () => {
 
-  const [url, setUrl] = useState(null);
-
+  const [url, setUrl] = useState();
+  
   const nro = Math.floor(Math.random() * 1000) + 1;
   async function mostrar() {
     const dataPokemon = await fetch("https://pokeapi.co/api/v2/pokemon/" + nro + "/").then((response) => response.json());
