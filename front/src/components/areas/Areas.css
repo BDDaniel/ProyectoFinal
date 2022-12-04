@@ -1,5 +1,12 @@
 /* Areas.css */
 
+.datatable-crud-demo {
+    height: 94.2783vh;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+}
+
 .datatable-crud-demo .table-header {
     display: flex;
     align-items: center;

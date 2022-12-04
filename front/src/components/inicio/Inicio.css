@@ -1,8 +1,23 @@
 .inicio {
     height: 94.2783vh;
     text-align: center;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
 }
 
 .paddingB8 {
     padding-bottom: 10rem;
+}
+
+.width20 {
+    width: 20%;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.heightMax {
+    height: 94.2783vh;
 }

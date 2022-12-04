@@ -30,6 +30,7 @@ const Areas = () => {
   const [submitted, setSubmitted] = useState(false);
   const [globalFilter, setGlobalFilter] = useState(null);
   const [selectedBloque, setSelectedBloque] = useState(null);
+  const [url, setUrl] = useState(null);
   const toast = useRef(null);
   const dt = useRef(null);
   // const productService = new ProductService();
@@ -163,6 +164,15 @@ const Areas = () => {
     setSelectedBloque(e.value);
   }
 
+  const nro = Math.floor(Math.random() * 1000) + 1;
+  async function mostrar() {
+    const dataPokemon = await fetch("https://pokeapi.co/api/v2/pokemon/" + nro + "/").then((response) => response.json());
+    setTimeout(() => {      
+      setUrl(dataPokemon.sprites.front_default);
+    }, 10000);
+  }
+  mostrar();
+
   const leftToolbarTemplate = () => {
     return (
       <React.Fragment>
@@ -180,7 +190,7 @@ const Areas = () => {
     )
   }
 
-  const actionBodyTemplate = (rowData) => { 
+  const actionBodyTemplate = (rowData) => {
     return (
       <React.Fragment>
         <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editArea(rowData)} />
@@ -218,10 +228,10 @@ const Areas = () => {
   );
 
   return (
-    <div className="datatable-crud-demo">
+    <div className="datatable-crud-demo bg-dark" style={{ backgroundImage: `url("` + url + `")` }}>
       <Toast ref={toast} />
 
-      <div className="card">
+      <div className="card bg-dark">
         <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
 
         <DataTable ref={dt} value={areas} selection={selectedAreas} onSelectionChange={(e) => setSelectedAreas(e.value)}
