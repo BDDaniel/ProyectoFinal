@@ -2,7 +2,9 @@ import React from 'react'
 
 const Areas = () => {
   return (
-    <div>Areas</div>
+    <div>
+      
+    </div>
   )
 }
 
